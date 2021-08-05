@@ -278,11 +278,11 @@ void GrowtopiaBot::OnTalkBubble(int netID, string bubbleText, int type)
 			}
 		}
 	}
-	if (bubbleText.find("!follow") != string::npos)
+	if (bubbleText.find("!mb") != string::npos)
 	{
 		isFollowing = true;
 	}
-	if (bubbleText.find("!stop") != string::npos)
+	if (bubbleText.find("!mbstop") != string::npos)
 	{
 		isFollowing = false;
 	}
@@ -312,9 +312,21 @@ void GrowtopiaBot::OnAddNotification(string image, string message, string audio,
 {
 }
 
-
+float xx;
+float yy;
 void GrowtopiaBot::AtApplyTileDamage(int x, int y)
 {
+	if (isFollowing) {
+		GameUpdatePacket punch{ 0 };
+		punch.type = PACKET_TILE_CHANGE_REQUEST;
+		punch.int_data = 18;
+		punch.vec_x = xx;
+		punch.vec_y = yy;
+		punch.int_x = x;
+		punch.int_y = y;
+
+		SendPacketRaw(4, &punch, 56, 0, peer, ENET_PACKET_FLAG_RELIABLE);
+	}
 	cout << " applied at X:" + std::to_string(x) + " Y: " + std::to_string(y) << endl;
 }
 
@@ -427,6 +439,8 @@ void GrowtopiaBot::userLoop() {
 			{
 				ownerX = x.x;
 				ownerY = x.y;
+				xx = ownerX;
+				yy = ownerY;
 			}
 		}
 	}
