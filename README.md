@@ -23,3 +23,4 @@ so I'd recommend to use **Visual Studio 2019** because its the version that I'm 
 ## TODO List:
   - [x] Realtime Captcha Solver
   - [x] Multiboxing
+  - [ ] Auto Msg
