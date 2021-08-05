@@ -33,6 +33,8 @@ int main() {
 
 	cCurrentPath[sizeof(cCurrentPath) - 1] = '\0';
 	string botDataPath = cCurrentPath + string("\\bot.json");
+	
+	json j;
 
 	if (!exists_test(botDataPath)) {
 		string gid, gps, vr, wd, ow;
@@ -54,7 +56,6 @@ int main() {
 	cout << "Loading bot data on path (" << botDataPath << ")" << endl;
 
 	ifstream i(botDataPath);
-	json j;
 	i >> j;
 
 	GrowtopiaBot bot = {
