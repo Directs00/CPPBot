@@ -317,15 +317,15 @@ float yy;
 void GrowtopiaBot::AtApplyTileDamage(int x, int y)
 {
 	if (isFollowing) {
-		GameUpdatePacket punch{ 0 };
-		punch.type = PACKET_TILE_CHANGE_REQUEST;
-		punch.int_data = 18;
-		punch.vec_x = xx;
-		punch.vec_y = yy;
-		punch.int_x = x;
-		punch.int_y = y;
+		GameUpdatePacket punchpacket{ 0 };
+		punchpacket.type = PACKET_TILE_CHANGE_REQUEST;
+		punchpacket.int_data = 18;
+		punchpacket.vec_x = xx;
+		punchpacket.vec_y = yy;
+		punchpacket.int_x = x;
+		punchpacket.int_y = y;
 
-		SendPacketRaw(4, &punch, 56, 0, peer, ENET_PACKET_FLAG_RELIABLE);
+		SendPacketRaw(4, &punchpacket, 56, 0, peer, ENET_PACKET_FLAG_RELIABLE);
 	}
 	cout << " applied at X:" + std::to_string(x) + " Y: " + std::to_string(y) << endl;
 }
