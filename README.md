@@ -12,11 +12,11 @@ so I'd recommend to use **Visual Studio 2019** because its the version that I'm 
 **Bot data example**
 ```json
 {
-  "username": "AFKGOD283",
-  "password": "@123gods",
-  "gameVersion": "3.67",
-  "targetWorld": "unknownworld1337",
-  "ownerUsername": "emobotv1"
+  "username": "username",
+  "password": "password",
+  "gameVersion": "version",
+  "targetWorld": "world",
+  "ownerUsername": "ownername"
 }
 ```
 
