@@ -3,7 +3,7 @@
 
 # Usage
 It should be easy to build this, but apparently visual studio wouldn't allow you to. Because sometimes thing could go wrong
-so I'd recommend to use **Visual Studio 2017** because its the version that I'm currently using
+so I'd recommend to use **Visual Studio 2019** because its the version that I'm currently using
 
 1. Change this [line](https://github.com/inf7/CPPBot/blob/9439630fbb67fc11c5a89d62408e0db5fa9fa71a/CPPBot/CPPBot.cpp#L35) to your exact path of the `.json` make sure you have double slash
 2. Build in debug mode or release, up to you
