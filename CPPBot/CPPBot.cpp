@@ -35,9 +35,22 @@ int main() {
 	string botDataPath = cCurrentPath + string("\\bot.json");
 
 	if (!exists_test(botDataPath)) {
-		cout << "Cannot find bot data on that path!. Stuck?, please read README.md" << endl;
-		return 0;
+		string gid, gps, vr, wd, ow;
+		cout << "GrowID: " << endl;
+		getline(cin, gid);
+		cout << "Password: " << endl;
+		getline(cin, gps);
+		cout << "Version: " << endl;
+		getline(cin, vr);
+		cout << "World: " << endl;
+		getline(cin, wd);
+		cout << "Owner: " << endl;
+		getline(cin, ow);
+		std::ofstream o(botDataPath);
+		j["username"] = gid,j["password"] = gps,j["gameVersion"] = vr,j["targetWorld"] = wd,j["ownerUsername"] = ow;
+		o << j << std::endl;
 	}
+	
 	cout << "Loading bot data on path (" << botDataPath << ")" << endl;
 
 	ifstream i(botDataPath);
